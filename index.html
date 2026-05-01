@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Jogo que Ninguém Te Explicou</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header id="main-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <span class="logo-icon">◆</span>
+        <div class="logo-text">
+          <span class="logo-title">O Jogo que Ninguém Te Explicou</span>
+          <span class="logo-subtitle">Consciência de Classe, Dinheiro e Liberdade Real</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <button id="btn-progress" class="nav-btn" title="Progresso">
+          <span class="nav-icon">◎</span> Progresso
+        </button>
+        <button id="btn-notes" class="nav-btn" title="Anotações">
+          <span class="nav-icon">✎</span> Anotações
+        </button>
+        <button id="btn-reset" class="nav-btn nav-btn--danger" title="Resetar progresso">
+          <span class="nav-icon">↺</span> Reset
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN ==================== -->
+  <main id="app">
+
+    <!-- VIEW: Landing -->
+    <section id="view-landing" class="view view--active">
+      <div class="landing-hero">
+        <div class="landing-badge">CURSO COMPLETO — 10 MÓDULOS</div>
+        <h1 class="landing-title">O Jogo que <span class="text-gold">Ninguém</span> Te Explicou</h1>
+        <p class="landing-subtitle">Consciência de Classe, Dinheiro e Liberdade Real</p>
+        <div class="landing-divider"></div>
+        <p class="landing-description">
+          Você não está aqui para decorar teoria. Você está aqui para <strong>enxergar o jogo</strong>.<br>
+          Entenda como o sistema funciona, onde você está posicionado e o que fazer para mudar de posição.
+        </p>
+        <div class="landing-stats">
+          <div class="stat-item">
+            <span class="stat-number">10</span>
+            <span class="stat-label">Módulos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50%</span>
+            <span class="stat-label">Nível Máximo</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">90</span>
+            <span class="stat-label">Dias de Ação</span>
+          </div>
+        </div>
+        <button id="btn-start" class="btn btn--primary btn--large">
+          Começar o Diagnóstico Inicial →
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW: Diagnosis -->
+    <section id="view-diagnosis" class="view">
+      <div class="diagnosis-container">
+        <div class="section-badge">DIAGNÓSTICO INICIAL</div>
+        <h2 class="section-title">Antes de começar, vamos medir onde você está</h2>
+        <p class="section-description">
+          Não existem respostas certas ou erradas. Seja honesto. Este é o ponto zero da sua jornada.
+        </p>
+
+        <div id="diagnosis-questions" class="diagnosis-questions">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <button id="btn-submit-diagnosis" class="btn btn--primary btn--large">
+          Enviar Diagnóstico e Começar →
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW: Modules Track -->
+    <section id="view-modules" class="view">
+      <div class="modules-container">
+        <div class="modules-header">
+          <div>
+            <div class="section-badge">SUA TRILHA</div>
+            <h2 class="section-title">Módulos do Curso</h2>
+          </div>
+          <div class="progress-overview">
+            <div class="progress-circle" id="progress-circle">
+              <svg viewBox="0 0 120 120">
+                <circle class="progress-ring-bg" cx="60" cy="60" r="54" />
+                <circle class="progress-ring" id="progress-ring" cx="60" cy="60" r="54" />
+              </svg>
+              <span class="progress-percentage" id="progress-percentage">0%</span>
+            </div>
+            <div class="progress-info">
+              <span class="progress-label">Consciência</span>
+              <span class="progress-level" id="consciousness-level">Nível: 0%</span>
+              <span class="progress-modules" id="progress-modules">0 de 10 concluídos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="next-mission" id="next-mission">
+          <span class="mission-icon">⚡</span>
+          <span class="mission-text" id="next-mission-text">Sua próxima missão: Módulo 1</span>
+        </div>
+
+        <div id="modules-list" class="modules-list">
+          <!-- Renderizado via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Lesson -->
+    <section id="view-lesson" class="view">
+      <div class="lesson-container">
+        <button id="btn-back-modules" class="btn btn--ghost">
+          ← Voltar aos módulos
+        </button>
+
+        <div class="lesson-header">
+          <span class="lesson-badge" id="lesson-badge">MÓDULO 1</span>
+          <h1 class="lesson-title" id="lesson-title"></h1>
+          <p class="lesson-objective" id="lesson-objective"></p>
+        </div>
+
+        <div class="lesson-content" id="lesson-content">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <div id="lesson-quote-area" class="lesson-quote-area">
+          <!-- Frase de impacto -->
+        </div>
+
+        <div class="lesson-actions">
+          <button id="btn-start-quiz" class="btn btn--primary btn--large">
+            Fazer o Quiz deste Módulo →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Quiz -->
+    <section id="view-quiz" class="view">
+      <div class="quiz-container">
+        <button id="btn-back-lesson" class="btn btn--ghost">
+          ← Voltar à aula
+        </button>
+
+        <div class="quiz-header">
+          <div class="section-badge">QUIZ</div>
+          <h2 class="section-title" id="quiz-title">Teste seu entendimento</h2>
+          <p class="quiz-subtitle" id="quiz-subtitle">Responda com atenção. O feedback é imediato.</p>
+        </div>
+
+        <div id="quiz-questions" class="quiz-questions">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <div id="quiz-result" class="quiz-result hidden">
+          <!-- Resultado do quiz -->
+        </div>
+
+        <div class="quiz-actions">
+          <button id="btn-submit-quiz" class="btn btn--primary btn--large">
+            Enviar Respostas →
+          </button>
+          <button id="btn-after-quiz" class="btn btn--secondary btn--large hidden">
+            Ir para Reflexão →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Reflection -->
+    <section id="view-reflection" class="view">
+      <div class="reflection-container">
+        <div class="section-badge">REFLEXÃO</div>
+        <h2 class="section-title">Agora é sua vez</h2>
+        <p class="section-description">
+          Consciência sem ação é só revolta. Escreva com honestidade. Ninguém vai ler além de você.
+        </p>
+
+        <div class="reflection-prompt" id="reflection-prompt"></div>
+
+        <div class="reflection-area">
+          <label for="reflection-input" class="sr-only">Sua reflexão</label>
+          <textarea id="reflection-input" class="reflection-textarea" placeholder="Escreva aqui sua reflexão..."></textarea>
+        </div>
+
+        <div class="reflection-actions">
+          <button id="btn-save-reflection" class="btn btn--primary btn--large">
+            Salvar e Concluir Módulo →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Financial Calculator (Module 5) -->
+    <section id="view-calculator" class="view">
+      <div class="calculator-container">
+        <div class="section-badge">FERRAMENTA INTERATIVA</div>
+        <h2 class="section-title">Calculadora da Liberdade Financeira</h2>
+        <p class="section-description">
+          Meça sua dependência real do trabalho. Seja honesto com os números.
+        </p>
+
+        <div class="calculator-form">
+          <div class="form-group">
+            <label for="calc-income">Quanto você ganha por mês? (R$)</label>
+            <input type="number" id="calc-income" placeholder="Ex: 3000" min="0">
+          </div>
+          <div class="form-group">
+            <label for="calc-expense">Quanto você gasta por mês? (R$)</label>
+            <input type="number" id="calc-expense" placeholder="Ex: 2800" min="0">
+          </div>
+          <div class="form-group">
+            <label for="calc-savings">Quanto você tem guardado? (R$)</label>
+            <input type="number" id="calc-savings" placeholder="Ex: 5000" min="0">
+          </div>
+        </div>
+
+        <button id="btn-calculate" class="btn btn--primary btn--large">
+          Calcular Minha Liberdade →
+        </button>
+
+        <div id="calc-result" class="calc-result hidden">
+          <!-- Resultado da calculadora -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: 90-Day Plan (Module 10) -->
+    <section id="view-plan90" class="view">
+      <div class="plan-container">
+        <div class="section-badge">PLANO DE AÇÃO</div>
+        <h2 class="section-title">Seus Próximos 90 Dias</h2>
+        <p class="section-description">
+          Consciência sem ação é só revolta. Aqui está o mapa. Siga um passo de cada vez.
+        </p>
+
+        <div id="plan90-weeks" class="plan-weeks">
+          <!-- Renderizado via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Completion -->
+    <section id="view-completion" class="view">
+      <div class="completion-container">
+        <div class="completion-badge">◆</div>
+        <h2 class="completion-title">Você Completou o Curso</h2>
+        <p class="completion-subtitle">
+          A pergunta não é só quem te explora. A pergunta é: <strong>o que você vai construir agora?</strong>
+        </p>
+
+        <div class="completion-stats">
+          <div class="completion-stat">
+            <span class="completion-stat-value" id="final-consciousness">0%</span>
+            <span class="completion-stat-label">Nível de Consciência</span>
+          </div>
+          <div class="completion-stat">
+            <span class="completion-stat-value" id="final-modules">0</span>
+            <span class="completion-stat-label">Módulos Concluídos</span>
+          </div>
+          <div class="completion-stat">
+            <span class="completion-stat-value" id="final-quizzes">0%</span>
+            <span class="completion-stat-label">Acerto nos Quizzes</span>
+          </div>
+        </div>
+
+        <div class="completion-comparison" id="completion-comparison">
+          <p>Antes do curso: <strong id="comparison-before">0%</strong> de consciência</p>
+          <p>Depois do curso: <strong id="comparison-after">0%</strong> de consciência</p>
+        </div>
+
+        <div class="certificate">
+          <div class="certificate-border">
+            <div class="certificate-inner">
+              <span class="cert-icon">◆</span>
+              <h3 class="cert-title">Certificado de Conclusão</h3>
+              <p class="cert-course">O Jogo que Ninguém Te Explicou</p>
+              <p class="cert-detail">Consciência de Classe, Dinheiro e Liberdade Real</p>
+              <p class="cert-date" id="cert-date"></p>
+              <p class="cert-level" id="cert-level"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="completion-message" id="completion-message"></div>
+
+        <div class="completion-actions">
+          <button id="btn-back-modules-end" class="btn btn--primary btn--large">
+            Voltar à Trilha
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL: Progress Panel -->
+    <div id="modal-progress" class="modal hidden">
+      <div class="modal-backdrop" id="modal-progress-backdrop"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-progress-close">×</button>
+        <h3 class="modal-title">Seu Progresso</h3>
+        <div class="modal-progress-body">
+          <div class="modal-stat-grid" id="modal-stats">
+            <!-- Renderizado via JS -->
+          </div>
+          <div id="modal-module-status" class="modal-module-status">
+            <!-- Lista de status dos módulos -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: Notes -->
+    <div id="modal-notes" class="modal hidden">
+      <div class="modal-backdrop" id="modal-notes-backdrop"></div>
+      <div class="modal-content modal-content--wide">
+        <button class="modal-close" id="modal-notes-close">×</button>
+        <h3 class="modal-title">Suas Anotações</h3>
+        <div class="modal-notes-body">
+          <p class="notes-hint">Suas anotações são salvas automaticamente. Apenas você pode vê-las.</p>
+          <textarea id="notes-area" class="notes-textarea" placeholder="Escreva suas anotações livres aqui..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: Reset Confirmation -->
+    <div id="modal-reset" class="modal hidden">
+      <div class="modal-backdrop" id="modal-reset-backdrop"></div>
+      <div class="modal-content modal-content--small">
+        <button class="modal-close" id="modal-reset-close">×</button>
+        <h3 class="modal-title">Resetar Todo o Progresso?</h3>
+        <p class="modal-text">Esta ação é irreversível. Todas as suas respostas, anotações e progresso serão apagados.</p>
+        <div class="modal-actions">
+          <button id="btn-cancel-reset" class="btn btn--secondary">Cancelar</button>
+          <button id="btn-confirm-reset" class="btn btn--danger">Confirmar Reset</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="main-footer">
+    <div class="footer-inner">
+      <p>◆ O Jogo que Ninguém Te Explicou</p>
+      <p class="footer-sub">Consciência de Classe, Dinheiro e Liberdade Real</p>
+      <p class="footer-copy">Plataforma educacional — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
