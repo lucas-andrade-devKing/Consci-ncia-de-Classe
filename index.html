@@ -19,14 +19,17 @@
         </div>
       </div>
       <nav class="header-nav">
+        <button id="btn-simple-mode" class="nav-btn" title="Modo leitura fácil">
+          <span class="nav-icon">✦</span> <span class="nav-btn-label">Modo simples</span>
+        </button>
         <button id="btn-progress" class="nav-btn" title="Progresso">
-          <span class="nav-icon">◎</span> Progresso
+          <span class="nav-icon">◎</span> <span class="nav-btn-label">Progresso</span>
         </button>
         <button id="btn-notes" class="nav-btn" title="Anotações">
-          <span class="nav-icon">✎</span> Anotações
+          <span class="nav-icon">✎</span> <span class="nav-btn-label">Anotações</span>
         </button>
         <button id="btn-reset" class="nav-btn nav-btn--danger" title="Resetar progresso">
-          <span class="nav-icon">↺</span> Reset
+          <span class="nav-icon">↺</span> <span class="nav-btn-label">Reset</span>
         </button>
       </nav>
     </div>
@@ -38,18 +41,23 @@
     <!-- VIEW: Landing -->
     <section id="view-landing" class="view view--active">
       <div class="landing-hero">
-        <div class="landing-badge">CURSO COMPLETO — 10 MÓDULOS</div>
+        <div class="landing-badge">CURSO COMPLETO — AULA 0 + 10 MÓDULOS</div>
         <h1 class="landing-title">O Jogo que <span class="text-gold">Ninguém</span> Te Explicou</h1>
         <p class="landing-subtitle">Consciência de Classe, Dinheiro e Liberdade Real</p>
         <div class="landing-divider"></div>
         <p class="landing-description">
-          Você não está aqui para decorar teoria. Você está aqui para <strong>enxergar o jogo</strong>.<br>
-          Entenda como o sistema funciona, onde você está posicionado e o que fazer para mudar de posição.
+          Você não está aqui para decorar teoria. Você está aqui para <strong>enxergar o tabuleiro</strong>.<br>
+          Histórias simples, exemplos do dia a dia e um plano claro de 90 dias.
         </p>
+
+        <div class="landing-soft-card">
+          <p><strong>Para quem é este curso:</strong> qualquer pessoa, mesmo quem nunca ouviu falar dessas coisas. Vamos começar do zero, devagar, sem palavra difícil. Se você travar, é só clicar em <em>"Não entendi"</em> que aparece outra explicação.</p>
+        </div>
+
         <div class="landing-stats">
           <div class="stat-item">
-            <span class="stat-number">10</span>
-            <span class="stat-label">Módulos</span>
+            <span class="stat-number">11</span>
+            <span class="stat-label">Aulas</span>
           </div>
           <div class="stat-item">
             <span class="stat-number">50%</span>
@@ -72,7 +80,7 @@
         <div class="section-badge">DIAGNÓSTICO INICIAL</div>
         <h2 class="section-title">Antes de começar, vamos medir onde você está</h2>
         <p class="section-description">
-          Não existem respostas certas ou erradas. Seja honesto. Este é o ponto zero da sua jornada.
+          Não existem respostas certas ou erradas. Seja honesto. Este é o ponto zero da sua jornada — e ninguém além de você vê estas respostas.
         </p>
 
         <div id="diagnosis-questions" class="diagnosis-questions">
@@ -91,7 +99,10 @@
         <div class="modules-header">
           <div>
             <div class="section-badge">SUA TRILHA</div>
-            <h2 class="section-title">Módulos do Curso</h2>
+            <h2 class="section-title">Trilha do Curso</h2>
+            <p class="modules-instruction">
+              Faça uma aula por vez, na ordem. A próxima só abre quando você concluir a anterior. Sem pressa.
+            </p>
           </div>
           <div class="progress-overview">
             <div class="progress-circle" id="progress-circle">
@@ -104,18 +115,25 @@
             <div class="progress-info">
               <span class="progress-label">Consciência</span>
               <span class="progress-level" id="consciousness-level">Nível: 0%</span>
-              <span class="progress-modules" id="progress-modules">0 de 10 concluídos</span>
+              <span class="progress-modules" id="progress-modules">0 de 11 concluídos</span>
             </div>
           </div>
         </div>
 
         <div class="next-mission" id="next-mission">
           <span class="mission-icon">⚡</span>
-          <span class="mission-text" id="next-mission-text">Sua próxima missão: Módulo 1</span>
+          <span class="mission-text" id="next-mission-text">Sua próxima missão: Aula 0</span>
         </div>
 
         <div id="modules-list" class="modules-list">
           <!-- Renderizado via JS -->
+        </div>
+
+        <div class="final-challenge-card" id="final-challenge-card">
+          <div class="final-challenge-icon">◆</div>
+          <h3>Desafio Final dos 50%</h3>
+          <p>Liberado quando você concluir todas as 11 aulas. 5 casos para você classificar. Só passa para o certificado quem acertar pelo menos 4.</p>
+          <button id="btn-open-final" class="btn btn--primary" disabled>Trancado</button>
         </div>
       </div>
     </section>
@@ -124,13 +142,16 @@
     <section id="view-lesson" class="view">
       <div class="lesson-container">
         <button id="btn-back-modules" class="btn btn--ghost">
-          ← Voltar aos módulos
+          ← Voltar à trilha
         </button>
 
         <div class="lesson-header">
-          <span class="lesson-badge" id="lesson-badge">MÓDULO 1</span>
+          <span class="lesson-badge" id="lesson-badge">AULA</span>
           <h1 class="lesson-title" id="lesson-title"></h1>
           <p class="lesson-objective" id="lesson-objective"></p>
+          <div class="lesson-safety" id="lesson-safety">
+            Não é vergonha estar nesse nível. Você não precisa entender tudo de primeira. Se travou, clique em <strong>"Não entendi"</strong>.
+          </div>
         </div>
 
         <div class="lesson-content" id="lesson-content">
@@ -143,7 +164,7 @@
 
         <div class="lesson-actions">
           <button id="btn-start-quiz" class="btn btn--primary btn--large">
-            Fazer o Quiz deste Módulo →
+            Fazer o Quiz desta aula →
           </button>
         </div>
       </div>
@@ -159,7 +180,7 @@
         <div class="quiz-header">
           <div class="section-badge">QUIZ</div>
           <h2 class="section-title" id="quiz-title">Teste seu entendimento</h2>
-          <p class="quiz-subtitle" id="quiz-subtitle">Responda com atenção. O feedback é imediato.</p>
+          <p class="quiz-subtitle" id="quiz-subtitle">São perguntas baseadas em casos reais. Errar não é fracasso — é informação. O feedback explica cada resposta.</p>
         </div>
 
         <div id="quiz-questions" class="quiz-questions">
@@ -177,6 +198,9 @@
           <button id="btn-after-quiz" class="btn btn--secondary btn--large hidden">
             Ir para Reflexão →
           </button>
+          <button id="btn-retry-quiz" class="btn btn--ghost hidden">
+            Refazer Quiz
+          </button>
         </div>
       </div>
     </section>
@@ -184,23 +208,26 @@
     <!-- VIEW: Reflection -->
     <section id="view-reflection" class="view">
       <div class="reflection-container">
-        <div class="section-badge">REFLEXÃO</div>
-        <h2 class="section-title">Agora é sua vez</h2>
+        <div class="section-badge">REFLEXÃO GUIADA</div>
+        <h2 class="section-title">Agora é sua vez de pensar</h2>
         <p class="section-description">
-          Consciência sem ação é só revolta. Escreva com honestidade. Ninguém vai ler além de você.
+          Ninguém vai ler isso além de você. Responda em passos curtos — não precisa escrever um texto longo. O objetivo não é nota. É clareza.
         </p>
 
-        <div class="reflection-prompt" id="reflection-prompt"></div>
+        <div id="reflection-steps" class="reflection-steps">
+          <!-- 4 perguntas guiadas, renderizadas via JS -->
+        </div>
 
-        <div class="reflection-area">
-          <label for="reflection-input" class="sr-only">Sua reflexão</label>
-          <textarea id="reflection-input" class="reflection-textarea" placeholder="Escreva aqui sua reflexão..."></textarea>
+        <div class="micro-action-card" id="micro-action-card">
+          <span class="micro-action-label">MICRO-AÇÃO DA SEMANA</span>
+          <p id="micro-action-text"></p>
         </div>
 
         <div class="reflection-actions">
           <button id="btn-save-reflection" class="btn btn--primary btn--large">
-            Salvar e Concluir Módulo →
+            Salvar e Concluir Aula →
           </button>
+          <p class="reflection-hint">Cada resposta precisa ter pelo menos 40 caracteres para concluir.</p>
         </div>
       </div>
     </section>
@@ -211,7 +238,7 @@
         <div class="section-badge">FERRAMENTA INTERATIVA</div>
         <h2 class="section-title">Calculadora da Liberdade Financeira</h2>
         <p class="section-description">
-          Meça sua dependência real do trabalho. Seja honesto com os números.
+          Isso não é para te assustar. É para te dar mapa. Preencha como puder — se não souber um valor exato, chute por baixo.
         </p>
 
         <div class="calculator-form">
@@ -220,12 +247,28 @@
             <input type="number" id="calc-income" placeholder="Ex: 3000" min="0">
           </div>
           <div class="form-group">
-            <label for="calc-expense">Quanto você gasta por mês? (R$)</label>
-            <input type="number" id="calc-expense" placeholder="Ex: 2800" min="0">
+            <label for="calc-extra">Renda extra (bicos, freelance, vendas) (R$)</label>
+            <input type="number" id="calc-extra" placeholder="Ex: 400" min="0">
           </div>
           <div class="form-group">
-            <label for="calc-savings">Quanto você tem guardado? (R$)</label>
-            <input type="number" id="calc-savings" placeholder="Ex: 5000" min="0">
+            <label for="calc-essential">Gasto essencial (aluguel, comida, conta de luz, transporte) (R$)</label>
+            <input type="number" id="calc-essential" placeholder="Ex: 1800" min="0">
+          </div>
+          <div class="form-group">
+            <label for="calc-impulse">Gasto por impulso (delivery, compra rápida, "merecimento") (R$)</label>
+            <input type="number" id="calc-impulse" placeholder="Ex: 500" min="0">
+          </div>
+          <div class="form-group">
+            <label for="calc-debt">Dívidas mensais (cartão, financiamento, empréstimo) (R$)</label>
+            <input type="number" id="calc-debt" placeholder="Ex: 600" min="0">
+          </div>
+          <div class="form-group">
+            <label for="calc-savings">Quanto você tem guardado hoje? (R$)</label>
+            <input type="number" id="calc-savings" placeholder="Ex: 2000" min="0">
+          </div>
+          <div class="form-group">
+            <label for="calc-goal">Meta de reserva (quanto quer guardar até o fim do ano) (R$)</label>
+            <input type="number" id="calc-goal" placeholder="Ex: 10000" min="0">
           </div>
         </div>
 
@@ -245,11 +288,71 @@
         <div class="section-badge">PLANO DE AÇÃO</div>
         <h2 class="section-title">Seus Próximos 90 Dias</h2>
         <p class="section-description">
-          Consciência sem ação é só revolta. Aqui está o mapa. Siga um passo de cada vez.
+          Consciência sem ação vira revolta parada. Aqui está um sistema simples. Preencha cada campo com honestidade — depois é só seguir um passo de cada vez.
         </p>
+
+        <div class="plan-system" id="plan-system">
+          <div class="plan-system-grid">
+            <div class="plan-input-group">
+              <label for="plan-goal">🎯 Meta principal dos 90 dias</label>
+              <input type="text" id="plan-goal" placeholder="Ex: Sair de R$ 0 guardados para R$ 1.500 reservados">
+            </div>
+            <div class="plan-input-group">
+              <label for="plan-skill">🧠 Habilidade que vou estudar</label>
+              <input type="text" id="plan-skill" placeholder="Ex: Excel básico, design simples, atendimento">
+            </div>
+            <div class="plan-input-group">
+              <label for="plan-extra">💰 Renda extra que vou testar</label>
+              <input type="text" id="plan-extra" placeholder="Ex: Marmita, conserto, venda online, aula particular">
+            </div>
+            <div class="plan-input-group">
+              <label for="plan-offer">📦 Primeira oferta concreta</label>
+              <input type="text" id="plan-offer" placeholder="Ex: Marmita fitness R$ 18, entrega de 2ª a 6ª">
+            </div>
+            <div class="plan-input-group">
+              <label for="plan-person">🤝 Primeira pessoa que vou abordar</label>
+              <input type="text" id="plan-person" placeholder="Nome de alguém real, hoje">
+            </div>
+            <div class="plan-input-group">
+              <label for="plan-routine">⏰ Rotina semanal de estudo/ação</label>
+              <input type="text" id="plan-routine" placeholder="Ex: 1h por dia, das 21h às 22h, seg a sex">
+            </div>
+            <div class="plan-input-group plan-input-group--full">
+              <label for="plan-indicator">📊 Indicador simples de progresso</label>
+              <input type="text" id="plan-indicator" placeholder="Ex: Quanto entrou de renda extra esta semana?">
+            </div>
+          </div>
+        </div>
 
         <div id="plan90-weeks" class="plan-weeks">
           <!-- Renderizado via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Final Challenge -->
+    <section id="view-final" class="view">
+      <div class="final-container">
+        <button id="btn-back-modules-final" class="btn btn--ghost">← Voltar à trilha</button>
+        <div class="section-badge">DESAFIO FINAL</div>
+        <h2 class="section-title">5 Casos. Você Classifica.</h2>
+        <p class="section-description">
+          Esta é a prova de que você enxergou o tabuleiro. Cada caso, classifique como: <strong>Individual</strong>, <strong>Estrutural</strong>, <strong>Misto</strong>, ou aponte a <strong>ação inteligente</strong>. Acertar 4 de 5 libera o certificado.
+        </p>
+
+        <div id="final-cases" class="final-cases">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <div id="final-result" class="final-result hidden"></div>
+
+        <div class="final-actions">
+          <button id="btn-submit-final" class="btn btn--primary btn--large">
+            Enviar Desafio Final →
+          </button>
+          <button id="btn-finish-course" class="btn btn--secondary btn--large hidden">
+            Ver Resultado Final e Certificado →
+          </button>
         </div>
       </div>
     </section>
@@ -270,7 +373,7 @@
           </div>
           <div class="completion-stat">
             <span class="completion-stat-value" id="final-modules">0</span>
-            <span class="completion-stat-label">Módulos Concluídos</span>
+            <span class="completion-stat-label">Aulas Concluídas</span>
           </div>
           <div class="completion-stat">
             <span class="completion-stat-value" id="final-quizzes">0%</span>
@@ -278,12 +381,14 @@
           </div>
         </div>
 
-        <div class="completion-comparison" id="completion-comparison">
-          <p>Antes do curso: <strong id="comparison-before">0%</strong> de consciência</p>
-          <p>Depois do curso: <strong id="comparison-after">0%</strong> de consciência</p>
+        <div class="before-after" id="before-after">
+          <h3 class="before-after-title">Antes e Depois</h3>
+          <div class="before-after-grid" id="before-after-grid">
+            <!-- Renderizado via JS -->
+          </div>
         </div>
 
-        <div class="certificate">
+        <div class="certificate" id="certificate-area">
           <div class="certificate-border">
             <div class="certificate-inner">
               <span class="cert-icon">◆</span>
@@ -305,6 +410,18 @@
         </div>
       </div>
     </section>
+
+    <!-- MODAL: Glossário -->
+    <div id="modal-glossary" class="modal hidden">
+      <div class="modal-backdrop" id="modal-glossary-backdrop"></div>
+      <div class="modal-content modal-content--small">
+        <button class="modal-close" id="modal-glossary-close">×</button>
+        <span class="modal-tag">DICIONÁRIO SIMPLES</span>
+        <h3 class="modal-title" id="glossary-term-title"></h3>
+        <p class="modal-text" id="glossary-term-text"></p>
+        <div class="modal-glossary-example" id="glossary-term-example"></div>
+      </div>
+    </div>
 
     <!-- MODAL: Progress Panel -->
     <div id="modal-progress" class="modal hidden">
